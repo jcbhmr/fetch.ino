@@ -20,7 +20,7 @@
 🔄 Supports async fetching \
 🔰 Easy to get started!
 
-⬇️ See below for a comparison with [instanceofMA/arduino-fetch]. This project **may** eventually be merged with it.
+⬇️ See below for a comparison with [instanceofMA/arduino-fetch]. These projects **may** eventually merge.
 
 ## Installation
 
