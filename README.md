@@ -20,7 +20,7 @@
 🔄 Supports async fetching \
 🔰 Easy to get started!
 
-⬇️ See below for a comparison with [instanceofMA/arduino-fetch]. These projects
+⬇️ See below for a [comparison with instanceofMA/arduino-fetch]. These projects
 **may** eventually merge.
 
 ## Installation
@@ -117,4 +117,5 @@ TODO: Add development short description
 [c++ namespaces]: https://en.cppreference.com/w/cpp/language/namespace#Example
 [docs site]: https://platfill.github.io/fetch.ino/
 [arduinojson]: https://arduinojson.org/
+[comparison with instanceofma/arduino-fetch]: #comparison
 <!-- prettier-ignore-end -->
