@@ -1,7 +1,18 @@
-.vscode
-.DS_Store
-*.code-workspace
+*.tgz
+*.tar.gz
 
+#region https://github.com/Arduino-CI/arduino_ci#non-root-installation
+/.bundle/
+vendor
+#endregion
+
+#region https://github.com/Arduino-CI/arduino_ci#changes-to-your-repository
+# arduino_ci unit test binaries and artifacts
+*.bin
+*.bin.dSYM
+#endregion
+
+#region https://github.com/github/gitignore/blob/main/C%2B%2B.gitignore
 # Prerequisites
 *.d
 
@@ -34,3 +45,4 @@
 *.exe
 *.out
 *.app
+#endregion
