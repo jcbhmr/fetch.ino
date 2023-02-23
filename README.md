@@ -20,7 +20,8 @@
 🔄 Supports async fetching \
 🔰 Easy to get started!
 
-⬇️ See below for a comparison with [instanceofMA/arduino-fetch]. These projects **may** eventually merge.
+⬇️ See below for a comparison with [instanceofMA/arduino-fetch]. These projects
+**may** eventually merge.
 
 ## Installation
 
@@ -88,9 +89,11 @@ void loop() {
 
 ## Comparison
 
-The general 
-
-Here's a (mostly) complete list of all the changes that this repo has made over [instanceofMA/arduino-fetch]:
+This project's primary alternative is [instanceofMA/arduino-fetch]. We
+originally forked this repo in order to improve the documentation, testing,
+automation, etc. over the bare-bones structure of the original. These changes
+**may** be merged back into the original repo. Here's a (mostly) complete list
+of all the changes that this repo has made over [instanceofMA/arduino-fetch]:
 
 1. [x] Add badges to readme
 2. [x] Re-work readme so that it flows better
