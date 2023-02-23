@@ -11,9 +11,16 @@
 
 <div align="center">
 
-![]()
+![](https://i.imgur.com/mq5wux8.png)
 
 </div>
+
+🔒 Supports SSL certificate verification \
+📚 Uses [ArduinoJson] for `.json()` \
+🔄 Supports async fetching \
+🔰 Easy to get started!
+
+⬇️ See below for a comparison with [instanceofMA/arduino-fetch]. This project **may** eventually be merged with it.
 
 ## Installation
 
@@ -79,6 +86,23 @@ void loop() {
 
 📚 Check out the [docs site] for full API descriptions!
 
+## Comparison
+
+The general 
+
+Here's a (mostly) complete list of all the changes that this repo has made over [instanceofMA/arduino-fetch]:
+
+1. [x] Add badges to readme
+2. [x] Re-work readme so that it flows better
+3. [ ] Use Doxygen to generate an HTML site
+4. [ ] Deploy the Doxygen content to GitHub Pages
+5. [ ] Add in-code references to the Fetch Standard
+6. [ ] Add Javadoc comments to the C++ source files
+7. [ ] Uses Arduino Lint & Arduino-CI
+8. [ ] Testing using AUnit in GitHub Actions
+9. [ ] A developer-focused wiki detailing the how & why
+10. [ ] A C++ formatter & linter
+
 ## Development
 
 TODO: Add development short description
@@ -89,4 +113,5 @@ TODO: Add development short description
 [platformio]: https://platformio.org/
 [c++ namespaces]: https://en.cppreference.com/w/cpp/language/namespace#Example
 [docs site]: https://platfill.github.io/fetch.ino/
+[arduinojson]: https://arduinojson.org/
 <!-- prettier-ignore-end -->
