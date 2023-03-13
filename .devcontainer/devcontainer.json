@@ -4,7 +4,7 @@
     "ghcr.io/devcontainers/features/python": {},
     "ghcr.io/devcontainers/features/ruby": {}
   },
-  "updateContentCommand": "gem install arduino_ci",
+  "postCreateCommand": "gem install arduino_ci",
   "customizations": {
     "vscode": {
       "extensions": []
