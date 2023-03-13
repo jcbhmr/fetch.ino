@@ -1,12 +1,19 @@
-typedef (sequence<sequence<ByteString>> or record<ByteString, ByteString>) HeadersInit;
+typedef (
+  // We don't want to involve std::vector<> in low-level Arduino stuff, so we
+  // omit this.
+  // sequence<sequence<ByteString>> or
+  record<ByteString, ByteString>
+) HeadersInit;
 
-[Exposed=(Window,Worker)]
+// [Exposed=(Window,Worker)]
+[Exposed=*]
 interface Headers {
   constructor(optional HeadersInit init);
 
   undefined append(ByteString name, ByteString value);
   undefined delete(ByteString name);
   ByteString? get(ByteString name);
+  // We don't deal with cookies right now.
   // sequence<ByteString> getSetCookie();
   boolean has(ByteString name);
   undefined set(ByteString name, ByteString value);
@@ -14,9 +21,13 @@ interface Headers {
 };
 
 typedef (
+  // We don't have the File API, and probably never will. Thus, we don't have to
+  // deal with the Blob/File types.
   // Blob or
   BufferSource or
+  // We don't implement this yet.
   // FormData or
+  // We don't implement this yet.
   // URLSearchParams or
   USVString
 ) XMLHttpRequestBodyInit;
@@ -28,15 +39,24 @@ typedef (
 interface mixin Body {
   readonly attribute ReadableStream? body;
   readonly attribute boolean bodyUsed;
-  [NewObject] Promise<ArrayBuffer> arrayBuffer();
+  // We don't implement any async stuff yet.
+  // [NewObject] Promise<ArrayBuffer> arrayBuffer();
+  ArrayBuffer arrayBuffer();
+  // This is a File API thing that we will never get.
   // [NewObject] Promise<Blob> blob();
+  // Not yet implemented.
   // [NewObject] Promise<FormData> formData();
-  [NewObject] Promise<any> json();
-  [NewObject] Promise<USVString> text();
+  // Synchonous version instead.
+  // [NewObject] Promise<any> json();
+  any json();
+  // Synchonous version instead.
+  // [NewObject] Promise<USVString> text();
+  USVString text();
 };
 typedef (Request or USVString) RequestInfo;
 
-[Exposed=(Window,Worker)]
+// [Exposed=(Window,Worker)]
+[Exposed=*]
 interface Request {
   constructor(RequestInfo input, optional RequestInit init = {});
 
@@ -44,13 +64,16 @@ interface Request {
   readonly attribute USVString url;
   [SameObject] readonly attribute Headers headers;
 
+  // All of this metadata stuff is probably never going to be implemented. It's
+  // mostly browser-specific stuff that Arduino projects don't need.
   // readonly attribute RequestDestination destination;
   // readonly attribute USVString referrer;
   // readonly attribute ReferrerPolicy referrerPolicy;
   // readonly attribute RequestMode mode;
   // readonly attribute RequestCredentials credentials;
   // readonly attribute RequestCache cache;
-  // readonly attribute RequestRedirect redirect;
+  // We do, however, want to control redirects.
+  readonly attribute RequestRedirect redirect;
   // readonly attribute DOMString integrity;
   // readonly attribute boolean keepalive;
   // readonly attribute boolean isReloadNavigation;
@@ -58,7 +81,13 @@ interface Request {
   // readonly attribute AbortSignal signal;
   // readonly attribute RequestDuplex duplex;
 
-  [NewObject] Request clone();
+  // Custom property for SSL verification. This is specific to Arduino since
+  // there's no builtin SSL support.
+  readonly attribute ArrayBuffer? certificate;
+  readonly attribute ArrayBuffer? fingerprint;
+
+  // Not yet implemented.
+  // [NewObject] Request clone();
 };
 Request includes Body;
 
