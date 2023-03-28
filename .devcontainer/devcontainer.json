@@ -8,7 +8,7 @@
       "ROOT_GEM": "gem"
     }
   },
-  "updateContentCommand": "gem install arduino_ci",
+  "updateContentCommand": "curl -fsSL https://raw.githubusercontent.com/arduino/arduino-lint/main/etc/install.sh | BINDIR=~/.local/bin sh && gem install arduino_ci",
   "customizations": {
     "vscode": {
       "extensions": [
