@@ -2,12 +2,21 @@
   "image": "mcr.microsoft.com/devcontainers/cpp",
   "features": {
     "ghcr.io/devcontainers/features/python": {},
-    "ghcr.io/devcontainers/features/ruby": {}
+    // https://github.com/devcontainers/features/issues/496
+    "ghcr.io/devcontainers/features/ruby": {
+      "INSTALL_RUBY_TOOLS": false,
+      "ROOT_GEM": "gem"
+    }
   },
-  "postCreateCommand": "gem install arduino_ci",
+  "updateContentCommand": "gem install arduino_ci",
   "customizations": {
     "vscode": {
-      "extensions": []
+      "extensions": [
+        "esbenp.prettier-vscode",
+        "ms-vscode.cpptools-extension-pack",
+        "jeff-hykin.better-cpp-syntax",
+        "xaver.clang-format"
+      ]
     }
   }
 }
