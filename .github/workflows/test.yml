@@ -1,0 +1,28 @@
+name: Test
+on:
+  push:
+    branches: [main]
+    paths:
+      - src/**
+      - test/**
+      - examples/**
+      - .github/workflows/test.yml
+  pull_request:
+    branches: [main]
+    paths:
+      - src/**
+      - test/**
+      - examples/**
+      - .github/workflows/test.yml
+concurrency:
+  group: test-${{ github.ref }}
+  cancel-in-progress: true
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - uses: ruby/setup-ruby@v1
+      - run: gem install arduino_ci
+      - uses: arduino/arduino-lint-action@v1
+      - run: arduino_ci_remote.rb
