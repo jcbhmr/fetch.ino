@@ -1,6 +1,5 @@
 typedef (
-  // We don't want to involve std::vector<> in low-level Arduino stuff, so we
-  // omit this.
+  // This isn't very common, so we don't implement this (for now).
   // sequence<sequence<ByteString>> or
   record<ByteString, ByteString>
 ) HeadersInit;
@@ -48,10 +47,10 @@ interface mixin Body {
   // [NewObject] Promise<FormData> formData();
   // Synchonous version instead.
   // [NewObject] Promise<any> json();
-  any json();
+  [NewObject] any json();
   // Synchonous version instead.
   // [NewObject] Promise<USVString> text();
-  USVString text();
+  [NewObject] USVString text();
 };
 typedef (Request or USVString) RequestInfo;
 
